@@ -2,30 +2,20 @@ import styled from "styled-components";
 
 const Father = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
-const Btn = styled.button`
-  color: white;
+const Input = styled.input.attrs({ required: true })`
   background-color: tomato;
-  border: 0;
-  border-radius: 15px;
 `;
-
-const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
-`;
-
-const Circle = styled(Box)`
-  border-radius: 50px;
-`;
-
 function App() {
   return (
-    <Father>
-      <Box bgColor="cornflowerblue" />
-      <Circle bgColor="tomato" />
+    <Father as="header">
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
     </Father>
   );
 }
