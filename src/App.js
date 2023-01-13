@@ -8,36 +8,29 @@ const Wrapper = styled.div`
 `;
 
 const rotationAnimation = keyframes`
-  0% {
+  from {
     transform: rotate(0deg);
-    border-radius:0px;
-  } 
-  50% {
-    transform: rotate(180deg);
-    border-radius:50px;
   }
-  100% {
-    transform: rotate(0deg);
-    border-radius:0px;
+  to {
+    transform: rotate(360deg);
   }
+`;
+
+const Emoji = styled.span`
+  font-size: 40px;
 `;
 
 const Box = styled.div`
   height: 100px;
   width: 100px;
+  border-radius: 30px;
   background-color: tomato;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${rotationAnimation} 2s linear infinite;
-  span {
-    font-size: 40px;
-    &:hover {
-      font-size: 70px;
-    }
-    &:active {
-      opacity: 0;
-    }
+  animation: ${rotationAnimation} 1.5s linear infinite;
+  ${Emoji}:hover {
+    font-size: 80px;
   }
 `;
 
@@ -45,8 +38,9 @@ function App() {
   return (
     <Wrapper>
       <Box>
-        <span>😊</span>
+        <Emoji as="p">😊</Emoji>
       </Box>
+      <Emoji>❤️</Emoji>
     </Wrapper>
   );
 }
