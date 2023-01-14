@@ -1,12 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-const Wrapper = styled.div`
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-`;
-
 const rotationAnimation = keyframes`
   from {
     transform: rotate(0deg);
@@ -16,14 +9,24 @@ const rotationAnimation = keyframes`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Box = styled.div`
+  width: 100px;
+  height: 100px;
+  border-radius: 30px;
+`;
+
 const Emoji = styled.span`
   font-size: 40px;
 `;
 
-const Box = styled.div`
-  height: 100px;
-  width: 100px;
-  border-radius: 30px;
+const Box1 = styled(Box)`
   background-color: tomato;
   display: flex;
   justify-content: center;
@@ -32,15 +35,35 @@ const Box = styled.div`
   ${Emoji}:hover {
     font-size: 80px;
   }
+
+  h1 {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+`;
+
+const Box2 = styled(Box)`
+  background-color: ${(props) => props.bgColor};
+`;
+
+const Input = styled.input.attrs({ required: true, maxLength: 10 })`
+  background-color: blanchedalmond;
 `;
 
 function App() {
   return (
     <Wrapper>
-      <Box>
-        <Emoji as="p">😊</Emoji>
-      </Box>
+      <Box1>
+        <Emoji>😊</Emoji>
+      </Box1>
+      <Box1>
+        <h1>Hello</h1>
+      </Box1>
       <Emoji>❤️</Emoji>
+      <Box2 bgColor="cornflowerblue"></Box2>
+      <Input />
     </Wrapper>
   );
 }
