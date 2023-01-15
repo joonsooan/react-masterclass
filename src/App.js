@@ -1,12 +1,7 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const rotationAnimation = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+const Title = styled.h1`
+  color: ${(props) => props.theme.textColor};
 `;
 
 const Wrapper = styled.div`
@@ -14,56 +9,13 @@ const Wrapper = styled.div`
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-`;
-
-const Box = styled.div`
-  width: 100px;
-  height: 100px;
-  border-radius: 30px;
-`;
-
-const Emoji = styled.span`
-  font-size: 40px;
-`;
-
-const Box1 = styled(Box)`
-  background-color: tomato;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: ${rotationAnimation} 1.5s linear infinite;
-  ${Emoji}:hover {
-    font-size: 80px;
-  }
-
-  h1 {
-    color: white;
-    &:hover {
-      color: black;
-    }
-  }
-`;
-
-const Box2 = styled(Box)`
-  background-color: ${(props) => props.bgColor};
-`;
-
-const Input = styled.input.attrs({ required: true, maxLength: 10 })`
-  background-color: blanchedalmond;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 function App() {
   return (
     <Wrapper>
-      <Box1>
-        <Emoji>😊</Emoji>
-      </Box1>
-      <Box1>
-        <h1>Hello</h1>
-      </Box1>
-      <Emoji>❤️</Emoji>
-      <Box2 bgColor="cornflowerblue"></Box2>
-      <Input />
+      <Title>Hello</Title>
     </Wrapper>
   );
 }
